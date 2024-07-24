@@ -6,7 +6,12 @@ import 'package:login_page_adding_to_list/appConstant.dart';
 import 'package:login_page_adding_to_list/detailed_page.dart';
 import 'package:login_page_adding_to_list/model_class.dart';
 
-class DashBoardPage extends StatelessWidget{
+class DashBoardPage extends StatefulWidget{
+  @override
+  State<DashBoardPage> createState() => _DashBoardPageState();
+}
+
+class _DashBoardPageState extends State<DashBoardPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(

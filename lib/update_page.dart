@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:login_page_adding_to_list/appConstant.dart';
 
+import 'dashboard_page.dart';
+
 class UpdatePage extends StatefulWidget{
   @override
   State<UpdatePage> createState() => _UpdatePageState();
@@ -22,7 +24,7 @@ class _UpdatePageState extends State<UpdatePage> {
         child: Column(
           children: [
             SizedBox(height: 100,),
-            /*---------------title----------------*/
+            /*---------------Title----------------*/
             SizedBox(
                 height: 50,
                 width: 300,
@@ -67,13 +69,16 @@ class _UpdatePageState extends State<UpdatePage> {
                   ),
                 )),
             SizedBox(height: 30,),
+            /*---------------Update----------------*/
             ElevatedButton(
                 onPressed: (){
                   int index = int.parse(indexController.text.toString());
                   String title = titleController.text.toString();
                   String desc = descController.text.toString();
                   AppConstant.notes[index-1][title] = desc;
-                  print(AppConstant.notes);
+                  Navigator.push(context, MaterialPageRoute(builder: (context){
+                    return DashBoardPage();
+                  }));
                   setState(() {
 
                   });

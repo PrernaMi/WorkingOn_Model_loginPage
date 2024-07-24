@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:login_page_adding_to_list/appConstant.dart';
+import 'package:login_page_adding_to_list/dashboard_page.dart';
 import 'package:login_page_adding_to_list/model_class.dart';
 import 'package:login_page_adding_to_list/remove_page.dart';
 import 'package:login_page_adding_to_list/update_page.dart';
@@ -70,7 +71,10 @@ class _AddDetailsState extends State<AddDetails> {
                               description: decs
                           ).toMap(),
                         );
-                        print(AppConstant.notes);
+                        Navigator.push(context, MaterialPageRoute(builder: (context){
+                          return DashBoardPage();
+                        }));
+                        // print(AppConstant.notes);
                         setState(() {
 
                         });
