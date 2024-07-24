@@ -7,7 +7,6 @@ class RemoveTitle extends StatefulWidget{
   @override
   State<RemoveTitle> createState() => _RemoveTitleState();
 }
-
 class _RemoveTitleState extends State<RemoveTitle> {
   @override
   Widget build(BuildContext context) {
