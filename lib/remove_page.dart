@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:login_page_adding_to_list/appConstant.dart';
 
 import 'dashboard_page.dart';
+import 'home_Screen.dart';
 
 class RemoveTitle extends StatefulWidget{
   @override
@@ -35,18 +36,28 @@ class _RemoveTitleState extends State<RemoveTitle> {
                 ),
               )),
           SizedBox(height: 30,),
-          ElevatedButton(
-          onPressed: (){
-            int index = int.parse(indexController.text.toString());
-            AppConstant.notes.removeAt(index-1);
-            Navigator.push(context, MaterialPageRoute(builder: (context){
-              return DashBoardPage();
-            }));
-            setState(() {
+          Column(
+            children: [
+              ElevatedButton(
+                  onPressed: (){
+                    int index = int.parse(indexController.text.toString());
+                    AppConstant.notes.removeAt(index);
+                    Navigator.push(context, MaterialPageRoute(builder: (context){
+                      return DashBoardPage();
+                    }));
+                    setState(() {
 
-            });
-          },
-              child: Text("Remove")
+                    });
+                  },
+                  child: Text("Remove")
+              ),
+              SizedBox(height: 30,),
+              ElevatedButton(onPressed: (){
+                Navigator.push(context, MaterialPageRoute(builder: (context){
+                  return HomeScreen();
+                }));
+              }, child: Text("Home"))
+            ],
           )
         ],
         ),

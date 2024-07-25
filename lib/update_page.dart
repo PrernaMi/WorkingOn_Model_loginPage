@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:login_page_adding_to_list/appConstant.dart';
 
 import 'dashboard_page.dart';
+import 'home_Screen.dart';
 
 class UpdatePage extends StatefulWidget{
   @override
@@ -61,7 +62,7 @@ class _UpdatePageState extends State<UpdatePage> {
                 child: TextField(
                   controller: indexController,
                   decoration: InputDecoration(
-                      labelText: "Index",
+                      labelText: "Title No.",
                       hintText: "Enter Your title number to update..",
                       border: OutlineInputBorder(
                         borderRadius: BorderRadius.circular(8),
@@ -70,20 +71,30 @@ class _UpdatePageState extends State<UpdatePage> {
                 )),
             SizedBox(height: 30,),
             /*---------------Update----------------*/
-            ElevatedButton(
-                onPressed: (){
-                  int index = int.parse(indexController.text.toString());
-                  String title = titleController.text.toString();
-                  String desc = descController.text.toString();
-                  AppConstant.notes[index-1][title] = desc;
-                  Navigator.push(context, MaterialPageRoute(builder: (context){
-                    return DashBoardPage();
-                  }));
-                  setState(() {
+            Column(
+              children: [
+                ElevatedButton(
+                    onPressed: (){
+                      int index = int.parse(indexController.text.toString());
+                      String title = titleController.text.toString();
+                      String desc = descController.text.toString();
+                      AppConstant.notes[index-1][title] = desc;
+                      Navigator.push(context, MaterialPageRoute(builder: (context){
+                        return DashBoardPage();
+                      }));
+                      setState(() {
 
-                  });
-                },
-                child: Text("Update")
+                      });
+                    },
+                    child: Text("Update")
+                ),
+                SizedBox(height: 30,),
+                ElevatedButton(onPressed: (){
+                  Navigator.push(context, MaterialPageRoute(builder: (context){
+                    return HomeScreen();
+                  }));
+                }, child: Text("Home"))
+              ],
             )
           ],
         ),

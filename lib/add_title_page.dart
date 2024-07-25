@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:login_page_adding_to_list/appConstant.dart';
 import 'package:login_page_adding_to_list/dashboard_page.dart';
+import 'package:login_page_adding_to_list/home_Screen.dart';
 import 'package:login_page_adding_to_list/model_class.dart';
 import 'package:login_page_adding_to_list/remove_page.dart';
 import 'package:login_page_adding_to_list/update_page.dart';
@@ -22,45 +23,44 @@ class _AddDetailsState extends State<AddDetails> {
       appBar: AppBar(
         title: Text("Add Notes"),
       ),
-      body: Column(
-        children: [
-          SizedBox(height: 100,),
-          /*--------------Title Field------------*/
-          SizedBox(
-            height: 50,
-              width: 300,
-              child: TextField(
-                controller: titleController,
-                decoration: InputDecoration(
-                  labelText: "Title",
-                  hintText: "Enter Your title here..",
-                  border: OutlineInputBorder(
-                    borderRadius: BorderRadius.circular(8),
-                  )
-                ),
-              )),
-          SizedBox(height: 30,),
-          /*--------------Description Field------------*/
-          SizedBox(
+      body: Center(
+        child: Column(
+          children: [
+            SizedBox(height: 100,),
+            /*--------------Title Field------------*/
+            SizedBox(
               height: 50,
-              width: 300,
-              child: TextField(
-                controller: descController,
-                decoration: InputDecoration(
-                    labelText: "Description",
-                    hintText: "Enter Your Description here..",
+                width: 300,
+                child: TextField(
+                  controller: titleController,
+                  decoration: InputDecoration(
+                    labelText: "Title",
+                    hintText: "Enter Your title here..",
                     border: OutlineInputBorder(
                       borderRadius: BorderRadius.circular(8),
                     )
-                ),
-              )),
-          SizedBox(height: 30,),
-          Column(
-            children: [
-              Row(
-                mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                  ),
+                )),
+            SizedBox(height: 30,),
+            /*--------------Description Field------------*/
+            SizedBox(
+                height: 50,
+                width: 300,
+                child: TextField(
+                  controller: descController,
+                  decoration: InputDecoration(
+                      labelText: "Description",
+                      hintText: "Enter Your Description here..",
+                      border: OutlineInputBorder(
+                        borderRadius: BorderRadius.circular(8),
+                      )
+                  ),
+                )),
+            SizedBox(height: 30,),
+            /*---------------Add----------------*/
+            Center(
+              child: Column(
                 children: [
-                  /*---------------Add----------------*/
                   ElevatedButton(
                       onPressed: (){
                         String mtitle = titleController.text.toString();
@@ -81,47 +81,19 @@ class _AddDetailsState extends State<AddDetails> {
                       },
                       child: Text("Add")
                   ),
-                  /*---------------Cancel----------------*/
-                  ElevatedButton(
-                      onPressed: (){
-                        print(AppConstant.notes);
-                        setState(() {
+                  SizedBox(height: 30,),
 
-                        });
-                      },
-                      child: Text("Cancel")
+                  ElevatedButton(onPressed: (){
+                    Navigator.push(context, MaterialPageRoute(builder: (context){
+                      return HomeScreen();
+                    }));
+                  }, child: Text("Home")
                   )
                 ],
               ),
-              SizedBox(height: 30,),
-              Row(
-                mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                children: [
-                  
-                  /*----------Update-----------*/
-                  ElevatedButton(
-                      onPressed: (){
-                        Navigator.push(context, MaterialPageRoute(builder: (context){
-                          return UpdatePage();
-                        }));
-                      },
-                      child: Text("Update")
-                  ),
-                  
-                  /*---------------Remove----------------*/
-                  ElevatedButton(
-                      onPressed: (){
-                        Navigator.push(context, MaterialPageRoute(builder: (context){
-                          return RemoveTitle();
-                        }));
-                      },
-                      child: Text("Remove")
-                  )
-                ],
-              )
-            ],
-          )
-        ],
+            )
+          ],
+        ),
       )
     );
   }
