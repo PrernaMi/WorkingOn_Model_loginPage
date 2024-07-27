@@ -28,8 +28,8 @@ class _RemoveTitleState extends State<RemoveTitle> {
               child: TextField(
                 controller: indexController,
                 decoration: InputDecoration(
-                    labelText: "Index",
-                    hintText: "Enter Your title index to delete..",
+                    labelText: "Title No.",
+                    hintText: "Enter Your title Number to delete..",
                     border: OutlineInputBorder(
                       borderRadius: BorderRadius.circular(8),
                     )
@@ -41,7 +41,7 @@ class _RemoveTitleState extends State<RemoveTitle> {
               ElevatedButton(
                   onPressed: (){
                     int index = int.parse(indexController.text.toString());
-                    AppConstant.notes.removeAt(index);
+                    AppConstant.notes.removeAt(index-1);
                     Navigator.push(context, MaterialPageRoute(builder: (context){
                       return DashBoardPage();
                     }));

@@ -39,15 +39,7 @@ class _HomeScreenState extends State<HomeScreen> {
                     },
                     child: Text("Add")
                 ),
-                /*----------Update-----------*/
-                ElevatedButton(
-                    onPressed: (){
-                      Navigator.push(context, MaterialPageRoute(builder: (context){
-                        return UpdatePage();
-                      }));
-                    },
-                    child: Text("Update")
-                ),
+
 
               ],
             ),

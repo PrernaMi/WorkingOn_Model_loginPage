@@ -53,6 +53,13 @@ class _DashBoardPageState extends State<DashBoardPage> {
                           child: ListTile(
                             title: Text(eachData.title??''),
                             subtitle: Text(eachData.description??''),
+                            trailing: InkWell(
+                              onTap: (){
+                                Navigator.push(context, MaterialPageRoute(builder: (context){
+                                  return UpdatePage(mIndex: Index);
+                                }));
+                              },
+                                child: Icon(Icons.edit)),
                           ),
                         ),
                       ),
@@ -79,15 +86,7 @@ class _DashBoardPageState extends State<DashBoardPage> {
                       },
                       child: Text("Add")
                   ),
-                  /*----------Update-----------*/
-                  ElevatedButton(
-                      onPressed: (){
-                        Navigator.push(context, MaterialPageRoute(builder: (context){
-                          return UpdatePage();
-                        }));
-                      },
-                      child: Text("Update")
-                  ),
+
 
                 ],
               ),
